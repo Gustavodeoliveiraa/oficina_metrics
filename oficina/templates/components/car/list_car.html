@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}SGE - Lista Carros{% endblock  %}
+
+{% block content %}
+    <div class="row mb-3">
+        <div class="col-md-8 col-lg-6">
+            <form action="" method="get">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" aria-label="car_model" class="form-control" name="car_model" placeholder="Modelo do carro" value={{request.GET.car_model}}>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+
+        <div class="col-md-4 col-lg-6">
+            <a href="{% url "create_car" %}" class="btn btn-success float-end">
+                <i class="bi bi-plus">Novo Carro</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <td>ID</td>
+                    <td>Modelo</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td>{{car.id}}</td>
+                    <td>{{car.car_model}}</td>
+                    <td class="text-center">
+                        <a href="" class="btn btn-info btn-sm">
+                            <i class="bi bi-eye"></i>
+                        </a>
+
+                        <a href="{% url "update_car" car.id %}" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+
+                        <a href="{% url "delete_car" car.id%}" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock content %}
