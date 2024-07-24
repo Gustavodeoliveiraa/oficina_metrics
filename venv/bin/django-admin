@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/gustavo/Área de trabalho/oficina_t/venv/bin/python3" "$0" "$@"
-' '''
+#!/var/www/oficina_metrics/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
