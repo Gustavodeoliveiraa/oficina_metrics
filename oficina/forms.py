@@ -21,11 +21,22 @@ class CarForm(forms.ModelForm):
 
 
 class ServiceForm(forms.ModelForm):
+    PAGO_CHOICES = (
+        (True, 'Sim'),
+        (False, 'Não'),
+    )
+
+    pago = forms.ChoiceField(
+        choices=PAGO_CHOICES,
+        widget=forms.RadioSelect,
+        label="Pago"
+    )
 
     class Meta:
         model = Service
         fields = [
             'responsible', 'car', 'service', 'service_price', 'license_plate',
+            'pago'
         ]
 
     def __init__(self, *args, **kwargs):

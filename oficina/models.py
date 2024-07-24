@@ -26,6 +26,7 @@ class Service(models.Model):
     service_price = models.DecimalField(max_digits=10, decimal_places=2)
     license_plate = models.CharField(max_length=255, null=False, blank=False)
     created_at = models.DateField(auto_now_add=True)
+    pago = models.BooleanField(default=False)
 
 
 class Outflow(models.Model):
