@@ -26,7 +26,6 @@ class ServiceForm(forms.ModelForm):
         model = Service
         fields = [
             'responsible', 'car', 'service', 'service_price', 'license_plate',
-
         ]
 
     def __init__(self, *args, **kwargs):

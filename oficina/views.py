@@ -98,7 +98,7 @@ class ServiceListView(ListView):
         if name:
             queryset = Service.objects.filter(car_model__icontains=name)
 
-        return queryset
+        return queryset.order_by('-created_at')
 
     def get_context_data(self, **kwargs):
 
